@@ -11,5 +11,18 @@ class CaesarCipher
     end.join('')
   end
 
+  def self.decrypt(sentence, shift_number)
+    alphabet = ('a'..'z').to_a
+
+    sentence.each_char.map do |letter|
+      next ' ' if letter.strip.empty?
+      shifted_index = alphabet.find_index(letter.downcase) - shift_number
+      #go over the end if shifted index is negative
+      shifted_index = shifted_index < 0 ? alphabet.length + shifted_index : shifted_index
+      alphabet[shifted_index]
+    end.join('')
+  end
 end
+
 p ciphered = CaesarCipher.encrypt('The quick brown fox jumps over the lazy dog', 5)
+p deciphered = CaesarCipher.decrypt(ciphered, 5)
