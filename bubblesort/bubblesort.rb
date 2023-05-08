@@ -1,13 +1,15 @@
 def bubblesort(forsort = [])
   newarr = forsort
+  unsorted = false
   (forsort.length-1).times do |index|
     if  newarr[index] > newarr[index + 1]
       #switch array values
       newarr[index], newarr[index + 1] = newarr[index + 1], newarr[index]
+      unsorted = true # flag to track that array is still unsorted
     end
   end
   #run recursively until all are sorted
-  bubblesort(newarr) unless newarr.each_cons(2).all?{|a, b| b >= a}
+  bubblesort(newarr) if unsorted
   newarr
 end
 
