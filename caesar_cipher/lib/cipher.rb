@@ -23,6 +23,3 @@ class CaesarCipher
     end.join('')
   end
 end
-
-p ciphered = CaesarCipher.encrypt('The quick brown fox jumps over the lazy dog', 5)
-p deciphered = CaesarCipher.decrypt(ciphered, 5)

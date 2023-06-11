@@ -34,6 +34,3 @@ class CaesarCipher2
     end.join
   end
 end
-
-p enc = CaesarCipher2.encrypt('The quicK brown foX JuMps over the Lazy dog', 5)
-p dec = CaesarCipher2.decrypt(enc, 5)
